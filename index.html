@@ -8,29 +8,36 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos base y para el fondo interactivo */
+        /* Estilos base */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: #fff; /* Texto blanco por defecto para los fondos de imagen */
             line-height: 1.6;
             background-color: #000; 
             background-size: cover;
             background-position: center;
-            transition: background-image 1s ease-in-out;
+            transition: background-image 1s ease-in-out; /* Transición suave de la imagen de fondo */
+            overflow: hidden; /* Evita el scroll general de la página */
+            height: 100vh; /* Ocupa la altura completa de la ventana */
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Encabezado */
         .header {
-            background-color: transparent;
-            padding: 2rem 0;
+            background-color: transparent; /* No tiene fondo propio, usa el del body */
+            padding: 1.5rem 0;
             text-align: center;
+            position: relative;
+            z-index: 10; /* Asegura que esté por encima del slider */
         }
 
         .header .logo {
-            max-width: 150px;
+            max-width: 120px; /* Un poco más pequeño para el header */
             height: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -39,105 +46,145 @@
         .header h1 {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            margin: 0.5rem 0 0.2rem;
-            font-size: 2.8rem;
+            margin: 0 0 0.2rem;
+            font-size: 2.5rem;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        /* Contenedor de las diapositivas horizontales */
-        .interactive-section {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            overflow-x: scroll; /* Habilita el desplazamiento horizontal */
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory; /* Fuerza a que se detenga en cada diapositiva */
-            height: 100vh; /* Ocupa la altura completa de la ventana */
-        }
-        
-        .slide {
-            flex: 0 0 100vw; /* Cada slide ocupa el 100% del ancho del viewport */
-            scroll-snap-align: center;
+        /* Contenedor principal del slider */
+        main {
+            flex-grow: 1; /* Permite que el main ocupe el espacio restante */
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 1rem;
-            box-sizing: border-box;
             position: relative;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            overflow: hidden; /* Oculta partes de las diapositivas no visibles */
+        }
+
+        #slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* Ocupa todo el espacio de main */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            position: absolute; /* Para que se superpongan */
+            width: 80%; /* Ancho del contenido */
+            max-width: 700px;
+            padding: 2rem;
+            text-align: center;
+            opacity: 0; /* Por defecto, todas las diapositivas están ocultas */
+            transition: opacity 0.8s ease-in-out; /* Transición para el cambio de diapositiva */
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el contenido */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .slide.active {
             opacity: 1;
-        }
-        
-        .slide-content {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            border-radius: 10px;
+            z-index: 5; /* La diapositiva activa está por encima */
         }
 
         .slide h2 {
             font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 2.5rem;
-            margin: 0 0 1rem;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #004d99; /* Color del título dentro del slide */
         }
 
-        .slide p {
-            font-size: 1.2rem;
-            margin: 0;
+        .slide p, .slide ul {
+            font-size: 1.1rem;
+            color: #eee;
         }
 
-        /* Estilos de las secciones finales (contacto y sobre nosotros) */
-        .section {
-            background-color: white;
-            color: #333;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 900px;
-        }
-
-        .section h2 {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            color: #004d99;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
-
-        .contact-info {
+        .slide ul {
             list-style: none;
             padding: 0;
+            margin-top: 1.5rem;
         }
 
-        .contact-info li {
-            margin-bottom: 0.5rem;
+        .slide ul li {
+            margin-bottom: 0.8rem;
+            color: #ddd;
         }
 
-        .contact-info a {
-            color: #004d99;
+        .slide ul li a {
+            color: #008cff; /* Color para enlaces en contacto */
             text-decoration: none;
         }
 
-        .contact-info a:hover {
+        .slide ul li a:hover {
             text-decoration: underline;
         }
 
+        /* Botones de navegación */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 2rem;
+            z-index: 10;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #prev-btn {
+            left: 1rem;
+        }
+
+        #next-btn {
+            right: 1rem;
+        }
+
+        /* Indicadores de diapositiva */
+        .slide-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: white;
+        }
+
+        /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
             color: #777;
             font-size: 0.9rem;
             background-color: #000;
+            position: relative;
+            z-index: 10;
         }
-
     </style>
 </head>
 <body>
@@ -145,48 +192,40 @@
     <header class="header">
         <img src="atclimatizacion.jpg" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
         <h1>ATCLIMATIZACIÓN</h1>
-        <p>Servicio de instalación y reparación de aires VRV, multisplit, calderas y más.</p>
     </header>
 
     <main>
-        <section class="interactive-section">
-            
+        <div id="slider-container">
             <div id="slide1" class="slide active">
-                <div class="slide-content">
-                    <h2>Servicio integral de instalación, mantenimiento y reparación</h2>
-                    <p>Brindamos soluciones para una amplia gama de sistemas: equipos ON-OFF, Inverter, VRV, multisplit y bombas de calor.</p>
-                </div>
+                <h2>Nuestros Servicios</h2>
+                <ul>
+                    <li>Reparación: Solución de problemas en aires VRV, multisplit y calderas.</li>
+                    <li>Instalación: Montaje profesional de equipos de aire.</li>
+                    <li>Mantenimiento: Servicio preventivo para alargar la vida útil de sus equipos.</li>
+                    <li>Asesoramiento: Les ayudamos a elegir el equipo adecuado para su espacio.</li>
+                </ul>
             </div>
             
             <div id="slide2" class="slide">
-                <div class="slide-content">
-                    <h2>¿Por qué conviene una suscripción mensual de mantenimiento preventivo?</h2>
-                    <p>Con nuestro plan mensual, te olvidas de los imprevistos y tu equipo funciona de manera óptima todo el año.</p>
-                </div>
+                <h2>Sobre Nosotros</h2>
+                <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
             </div>
             
             <div id="slide3" class="slide">
-                <div class="slide-content">
-                    <h2>Las 5 fallas más comunes del aire acondicionado split</h2>
-                    <p>¿Tu aire acondicionado no enfría bien o hace ruidos extraños? Te explicamos las fallas más comunes y cómo solucionarlas.</p>
-                </div>
+                <h2>Contacto</h2>
+                <ul class="contact-info">
+                    <li>Teléfono: <a href="tel:+5491137602640">1137602640</a></li>
+                    <li>Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
+                    <li>Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <section id="contact" class="section">
-            <h2>Contacto</h2>
-            <ul class="contact-info">
-                <li>Teléfono: <a href="tel:+5491137602640">1137602640</a></li>
-                <li>Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
-                <li>Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
-            </ul>
-        </section>
-
-        <section id="about" class="section">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
-        </section>
-
+        <button id="prev-btn" class="nav-button">&#10094;</button> <button id="next-btn" class="nav-button">&#10095;</button> <div class="slide-indicators">
+            <span class="indicator active" data-slide-index="0"></span>
+            <span class="indicator" data-slide-index="1"></span>
+            <span class="indicator" data-slide-index="2"></span>
+        </div>
     </main>
 
     <footer class="footer">
@@ -194,55 +233,79 @@
     </footer>
 
     <script>
-        const interactiveSection = document.querySelector('.interactive-section');
         const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const indicatorsContainer = document.querySelector('.slide-indicators');
+        const indicators = document.querySelectorAll('.indicator');
         const body = document.body;
 
-        const slideData = {
-            'slide1': {
-                'image': 'ATCLIMATIZACIÓN1.png',
-            },
-            'slide2': {
-                'image': 'URL_DE_TU_SEGUNDA_IMAGEN.jpg',
-            },
-            'slide3': {
-                'image': 'URL_DE_TU_TERCERA_IMAGEN.jpg',
-            }
-        };
+        let currentSlide = 0;
 
-        function updateBackground() {
-            const scrollLeft = interactiveSection.scrollLeft;
-            const slideWidth = interactiveSection.offsetWidth;
-            const currentSlideIndex = Math.round(scrollLeft / slideWidth);
-            
-            slides.forEach((slide, index) => {
-                if (index === currentSlideIndex) {
+        // Datos de las diapositivas con las URLs de las imágenes
+        const slideData = [
+            {
+                id: 'slide1',
+                image: 'URL_DE_TU_PRIMERA_IMAGEN.jpg', // Imagen para "Nuestros Servicios"
+            },
+            {
+                id: 'slide2',
+                image: 'URL_DE_TU_SEGUNDA_IMAGEN.jpg', // Imagen para "Sobre Nosotros"
+            },
+            {
+                id: 'slide3',
+                image: 'URL_DE_TU_TERCERA_IMAGEN.jpg', // Imagen para "Contacto"
+            }
+        ];
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
                     slide.classList.add('active');
-                    const slideId = slide.id;
-                    const data = slideData[slideId];
-                    if (data && data.image) {
-                        body.style.backgroundImage = url(${data.image});
-                    }
-                } else {
-                    slide.classList.remove('active');
                 }
             });
+
+            indicators.forEach((indicator, i) => {
+                indicator.classList.remove('active');
+                if (i === index) {
+                    indicator.classList.add('active');
+                }
+            });
+
+            // Cambia la imagen de fondo del body
+            if (slideData[index] && slideData[index].image) {
+                body.style.backgroundImage = url(${slideData[index].image});
+            }
         }
-        
-        // Debounce para mejorar el rendimiento
-        let isScrolling;
-        interactiveSection.addEventListener('scroll', () => {
-            clearTimeout(isScrolling);
-            isScrolling = setTimeout(() => {
-                updateBackground();
-            }, 50); // Ajusta el tiempo si quieres que cambie más rápido
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Event Listeners para los botones de navegación
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Event Listeners para los indicadores
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.slideIndex);
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
         });
 
-        // Llama a la función al cargar la página para establecer el fondo inicial
+        // Mostrar la primera diapositiva al cargar
         window.addEventListener('load', () => {
-            updateBackground();
+            showSlide(currentSlide);
         });
     </script>
 </body>
 </html>
-
