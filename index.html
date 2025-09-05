@@ -1,70 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATCLIMATIZACIÓN - Servicios de Reparación y Mantenimiento de Aires Acondicionados</title>
+    <title>ATCLIMATIZACIÓN - Mantenimiento y Reparación</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Estilos base y para el fondo interactivo */
         body {
-            font-family: 'Roboto', sans-serif; /* Fuente principal para el cuerpo */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            color: #fff;
             line-height: 1.6;
+            background-color: #000; 
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
         }
 
         .header {
-            background-color: #000; /* Fondo negro */
-            color: white;
+            background-color: transparent;
             padding: 2rem 0;
             text-align: center;
         }
 
         .header .logo {
-            max-width: 150px; /* Tamaño del logo */
+            max-width: 150px;
             height: auto;
             margin-bottom: 1rem;
-            display: block; /* Para centrar la imagen */
+            display: block;
             margin-left: auto;
             margin-right: auto;
         }
 
         .header h1 {
-            font-family: 'Rajdhani', sans-serif; /* Nueva fuente para el título */
-            font-weight: 700; /* Negrita */
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
             margin: 0.5rem 0 0.2rem;
-            font-size: 2.8rem; /* Un poco más grande para destacar */
-            letter-spacing: 3px; /* Más espacio entre letras para simular el logo */
-            text-transform: uppercase; /* Todo en mayúsculas como en el logo */
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .header p {
-            margin: 0;
-            font-size: 1.1rem;
+        /* Contenedor de las diapositivas horizontales */
+        .interactive-section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: scroll; /* Habilita el desplazamiento horizontal */
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory; /* Fuerza a que se detenga en cada diapositiva */
+            height: 100vh; /* Ocupa la altura completa de la ventana */
         }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
+        
+        .slide {
+            flex: 0 0 100vw; /* Cada slide ocupa el 100% del ancho del viewport */
+            scroll-snap-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 0 1rem;
+            box-sizing: border-box;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .slide h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin: 0 0 1rem;
+        }
+
+        .slide p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Estilos de las secciones finales (contacto y sobre nosotros) */
         .section {
             background-color: white;
+            color: #333;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
         }
 
         .section h2 {
-            font-family: 'Rajdhani', sans-serif; /* También aplicamos Rajdhani a los subtítulos de sección */
-            font-weight: 600; /* Un poco menos negrita que el título principal */
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
             color: #004d99;
             border-bottom: 2px solid #ddd;
             padding-bottom: 0.5rem;
@@ -91,31 +132,45 @@
 
         .footer {
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
             color: #777;
             font-size: 0.9rem;
+            background-color: #000;
         }
-    </style>
 
+    </style>
 </head>
 <body>
 
     <header class="header">
-       <img src="atclimatizacion.jpg" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
+        <img src="atclimatizacion.jpg" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
         <h1>ATCLIMATIZACIÓN</h1>
         <p>Servicio de instalación y reparación de aires VRV, multisplit, calderas y más.</p>
     </header>
 
-    <main class="container">
-        
-        <section id="services" class="section">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>Reparación: Solución de problemas en aires VRV, multisplit y calderas.</li>
-                <li>Instalación: Montaje profesional de equipos de aire.</li>
-                <li>Mantenimiento: Servicio preventivo para alargar la vida útil de sus equipos.</li>
-                <li>Asesoramiento: Les ayudamos a elegir el equipo adecuado para su espacio.</li>
-            </ul>
+    <main>
+        <section class="interactive-section">
+            
+            <div id="slide1" class="slide active">
+                <div class="slide-content">
+                    <h2>Servicio integral de instalación, mantenimiento y reparación</h2>
+                    <p>Brindamos soluciones para una amplia gama de sistemas: equipos ON-OFF, Inverter, VRV, multisplit y bombas de calor.</p>
+                </div>
+            </div>
+            
+            <div id="slide2" class="slide">
+                <div class="slide-content">
+                    <h2>¿Por qué conviene una suscripción mensual de mantenimiento preventivo?</h2>
+                    <p>Con nuestro plan mensual, te olvidas de los imprevistos y tu equipo funciona de manera óptima todo el año.</p>
+                </div>
+            </div>
+            
+            <div id="slide3" class="slide">
+                <div class="slide-content">
+                    <h2>Las 5 fallas más comunes del aire acondicionado split</h2>
+                    <p>¿Tu aire acondicionado no enfría bien o hace ruidos extraños? Te explicamos las fallas más comunes y cómo solucionarlas.</p>
+                </div>
+            </div>
         </section>
 
         <section id="contact" class="section">
@@ -138,8 +193,55 @@
         <p>&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        const interactiveSection = document.querySelector('.interactive-section');
+        const slides = document.querySelectorAll('.slide');
+        const body = document.body;
+
+        const slideData = {
+            'slide1': {
+                'image': 'URL_DE_TU_PRIMERA_IMAGEN.jpg',
+            },
+            'slide2': {
+                'image': 'URL_DE_TU_SEGUNDA_IMAGEN.jpg',
+            },
+            'slide3': {
+                'image': 'URL_DE_TU_TERCERA_IMAGEN.jpg',
+            }
+        };
+
+        function updateBackground() {
+            const scrollLeft = interactiveSection.scrollLeft;
+            const slideWidth = interactiveSection.offsetWidth;
+            const currentSlideIndex = Math.round(scrollLeft / slideWidth);
+            
+            slides.forEach((slide, index) => {
+                if (index === currentSlideIndex) {
+                    slide.classList.add('active');
+                    const slideId = slide.id;
+                    const data = slideData[slideId];
+                    if (data && data.image) {
+                        body.style.backgroundImage = url(${data.image});
+                    }
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+        
+        // Debounce para mejorar el rendimiento
+        let isScrolling;
+        interactiveSection.addEventListener('scroll', () => {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                updateBackground();
+            }, 50); // Ajusta el tiempo si quieres que cambie más rápido
+        });
+
+        // Llama a la función al cargar la página para establecer el fondo inicial
+        window.addEventListener('load', () => {
+            updateBackground();
+        });
+    </script>
 </body>
-
 </html>
-
-
