@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATCLIMATIZACIÓN - Mantenimiento y Reparación</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,29 +13,29 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff; /* Texto blanco por defecto para los fondos de imagen */
+            color: #fff;
             line-height: 1.6;
             background-color: #000; 
             background-size: cover;
             background-position: center;
-            transition: background-image 1s ease-in-out; /* Transición suave de la imagen de fondo */
-            overflow: hidden; /* Evita el scroll general de la página */
-            height: 100vh; /* Ocupa la altura completa de la ventana */
+            transition: background-image 1s ease-in-out;
+            overflow: hidden;
+            height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         /* Encabezado */
         .header {
-            background-color: transparent; /* No tiene fondo propio, usa el del body */
+            background-color: transparent;
             padding: 1.5rem 0;
             text-align: center;
             position: relative;
-            z-index: 10; /* Asegura que esté por encima del slider */
+            z-index: 10;
         }
 
         .header .logo {
-            max-width: 120px; /* Un poco más pequeño para el header */
+            max-width: 120px;
             height: auto;
             margin-bottom: 0.5rem;
             display: block;
@@ -54,40 +54,40 @@
 
         /* Contenedor principal del slider */
         main {
-            flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+            flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden; /* Oculta partes de las diapositivas no visibles */
+            overflow: hidden;
         }
 
         #slider-container {
             position: relative;
             width: 100%;
-            height: 100%; /* Ocupa todo el espacio de main */
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .slide {
-            position: absolute; /* Para que se superpongan */
-            width: 80%; /* Ancho del contenido */
+            position: absolute;
+            width: 80%;
             max-width: 700px;
             padding: 2rem;
             text-align: center;
-            opacity: 0; /* Por defecto, todas las diapositivas están ocultas */
-            transition: opacity 0.8s ease-in-out; /* Transición para el cambio de diapositiva */
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
             z-index: 1;
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el contenido */
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .slide.active {
             opacity: 1;
-            z-index: 5; /* La diapositiva activa está por encima */
+            z-index: 5;
         }
 
         .slide h2 {
@@ -95,7 +95,7 @@
             font-weight: 700;
             font-size: 2.2rem;
             margin-bottom: 1rem;
-            color: #004d99; /* Color del título dentro del slide */
+            color: #004d99;
         }
 
         .slide p, .slide ul {
@@ -115,7 +115,7 @@
         }
 
         .slide ul li a {
-            color: #008cff; /* Color para enlaces en contacto */
+            color: #008cff;
             text-decoration: none;
         }
 
@@ -219,12 +219,33 @@
                     <li>Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
                 </ul>
             </div>
+            
+            <div id="slide4" class="slide">
+                <h2>Servicio de Instalación y Reparación</h2>
+                <p>Brindamos servicio integral para una amplia gama de sistemas: equipos ON-OFF, Inverter, VRV, multisplit y bombas de calor. Instalamos, reparamos y mantenemos su equipo para un funcionamiento óptimo.</p>
+            </div>
+            
+            <div id="slide5" class="slide">
+                <h2>Suscripción de Mantenimiento</h2>
+                <p>Con nuestro plan mensual, te olvidas de los imprevistos y tu equipo funciona de manera óptima todo el año. ¡Asegura el rendimiento de tu aire acondicionado con nuestro plan de mantenimiento preventivo!</p>
+            </div>
+            
+            <div id="slide6" class="slide">
+                <h2>¿Tu equipo tiene fallas?</h2>
+                <p>¿Tu aire acondicionado no enfría bien o hace ruidos extraños? Te explicamos las 5 fallas más comunes y cómo solucionarlas.</p>
+            </div>
         </div>
 
-        <button id="prev-btn" class="nav-button">&#10094;</button> <button id="next-btn" class="nav-button">&#10095;</button> <div class="slide-indicators">
+        <button id="prev-btn" class="nav-button">&#10094;</button> 
+        <button id="next-btn" class="nav-button">&#10095;</button> 
+        
+        <div class="slide-indicators">
             <span class="indicator active" data-slide-index="0"></span>
             <span class="indicator" data-slide-index="1"></span>
             <span class="indicator" data-slide-index="2"></span>
+            <span class="indicator" data-slide-index="3"></span>
+            <span class="indicator" data-slide-index="4"></span>
+            <span class="indicator" data-slide-index="5"></span>
         </div>
     </main>
 
@@ -236,7 +257,6 @@
         const slides = document.querySelectorAll('.slide');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
-        const indicatorsContainer = document.querySelector('.slide-indicators');
         const indicators = document.querySelectorAll('.indicator');
         const body = document.body;
 
@@ -244,18 +264,12 @@
 
         // Datos de las diapositivas con las URLs de las imágenes
         const slideData = [
-            {
-                id: 'slide1',
-                image: 'URL_DE_TU_PRIMERA_IMAGEN.jpg', // Imagen para "Nuestros Servicios"
-            },
-            {
-                id: 'slide2',
-                image: 'URL_DE_TU_SEGUNDA_IMAGEN.jpg', // Imagen para "Sobre Nosotros"
-            },
-            {
-                id: 'slide3',
-                image: 'URL_DE_TU_TERCERA_IMAGEN.jpg', // Imagen para "Contacto"
-            }
+            { id: 'slide1', image: 'URL_DE_TU_IMAGEN_1.jpg' },
+            { id: 'slide2', image: 'URL_DE_TU_IMAGEN_2.jpg' },
+            { id: 'slide3', image: 'URL_DE_TU_IMAGEN_3.jpg' },
+            { id: 'slide4', image: 'URL_DE_TU_IMAGEN_4.jpg' }, // Imagen para "Instalación y Reparación"
+            { id: 'slide5', image: 'URL_DE_TU_IMAGEN_5.jpg' }, // Imagen para "Suscripción"
+            { id: 'slide6', image: 'URL_DE_TU_IMAGEN_6.jpg' } // Imagen para "Fallas Comunes"
         ];
 
         function showSlide(index) {
@@ -273,9 +287,8 @@
                 }
             });
 
-            // Cambia la imagen de fondo del body
             if (slideData[index] && slideData[index].image) {
-                body.style.backgroundImage = url(${slideData[index].image});
+                body.style.backgroundImage = `url(${slideData[index].image})`;
             }
         }
 
@@ -289,11 +302,11 @@
             showSlide(currentSlide);
         }
 
-        // Event Listeners para los botones de navegación
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+        }
 
-        // Event Listeners para los indicadores
         indicators.forEach(indicator => {
             indicator.addEventListener('click', (e) => {
                 const index = parseInt(e.target.dataset.slideIndex);
@@ -302,7 +315,6 @@
             });
         });
 
-        // Mostrar la primera diapositiva al cargar
         window.addEventListener('load', () => {
             showSlide(currentSlide);
         });
