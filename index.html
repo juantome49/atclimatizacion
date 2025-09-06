@@ -1,242 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATCLIMATIZACIÓN - Mantenimiento y Reparación</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos base para un diseño de una sola página */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            line-height: 1.6;
-            background-color: #000; 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Mantiene la imagen de fondo fija */
-            transition: background-image 1s ease-in-out;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATCLIMATIZACIÓN - Mantenimiento y Reparación</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base para un diseño de una sola página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Color de texto oscuro para el cuerpo */
+            line-height: 1.6;
+            background-color: #f4f4f9; /* Color de fondo pastel */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 1s ease-in-out;
+        }
 
-        /* Encabezado */
-        .header {
-            background-color: transparent;
-            padding: 1.5rem 0;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .header .logo {
-            max-width: 120px;
-            height: auto;
-            margin-bottom: 0.5rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* Encabezado */
+        .header {
+            background-color: transparent;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header .logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 0.5rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        .header h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            margin: 0 0 0.2rem;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+        .header h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            margin: 0 0 0.2rem;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #333; /* Color de título oscuro */
+        }
 
-        /* Contenedor principal del contenido */
-        main {
-            position: relative;
-        }
+        /* Contenedor principal del contenido */
+        main {
+            position: relative;
+        }
 
-        .section-wrapper {
-            height: 100vh; /* Cada sección ocupa el 100% de la altura de la ventana */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+        .section-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-        .slide-content {
-            width: 80%;
-            max-width: 700px;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+        .slide-content {
+            width: 80%;
+            max-width: 700px;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-        .slide-content h2 {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #004d99;
-        }
+        .slide-content h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #004d99; /* Color de título azul, se mantiene bien */
+        }
 
-        .slide-content p, .slide-content ul {
-            font-size: 1.1rem;
-            color: #eee;
-        }
+        .slide-content p, .slide-content ul {
+            font-size: 1.1rem;
+            color: #444; /* Color de texto más oscuro */
+        }
 
-        .slide-content ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
+        .slide-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
 
-        .slide-content ul li {
-            margin-bottom: 0.8rem;
-            color: #ddd;
-        }
+        .slide-content ul li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
 
-        .slide-content ul li a {
-            color: #008cff;
-            text-decoration: none;
-        }
+        .slide-content ul li a {
+            color: #008cff;
+            text-decoration: none;
+        }
 
-        .slide-content ul li a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Botón flotante de WhatsApp */
-        .whatsapp-float-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-            max-width: 100px; /* Tamaño máximo del botón flotante */
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
-        }
+        .slide-content ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            max-width: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
 
-        .whatsapp-float-button:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float-button:hover {
+            transform: scale(1.1);
+        }
 
-        .whatsapp-float-button img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
+        .whatsapp-float-button img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="header">
-        <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
-        <h1>ATCLIMATIZACIÓN</h1>
-    </header>
+    <header class="header">
+        <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
+        <h1>ATCLIMATIZACIÓN</h1>
+    </header>
 
-    <main>
-        <div id="section1" class="section-wrapper">
-            <div class="slide-content">
-                <h2>Nuestros Servicios</h2>
-                <ul>
-                    <li>Reparación: Solución de problemas en aires VRV, multisplit y calderas.</li>
-                    <li>Instalación: Montaje profesional de equipos de aire.</li>
-                    <li>Mantenimiento: Servicio preventivo para alargar la vida útil de sus equipos.</li>
-                    <li>Asesoramiento: Les ayudamos a elegir el equipo adecuado para su espacio.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div id="section2" class="section-wrapper">
-            <div class="slide-content">
-                <h2>Sobre Nosotros</h2>
-                <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
-            </div>
-        </div>
-        
-        <div id="section3" class="section-wrapper">
-            <div class="slide-content">
-                <h2>Contacto</h2>
-                <ul class="contact-info">
-                    <li>Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
-                    <li>Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div id="section4" class="section-wrapper">
-            <div class="slide-content">
-                <h2>Servicio de Instalación y Reparación</h2>
-                <p>Brindamos servicio integral para una amplia gama de sistemas: equipos ON-OFF, Inverter, VRV, multisplit y bombas de calor. Instalamos, reparamos y mantenemos su equipo para un funcionamiento óptimo.</p>
-            </div>
-        </div>
-        
-        <div id="section5" class="section-wrapper">
-            <div class="slide-content">
-                <h2>Suscripción de Mantenimiento</h2>
-                <p>Con nuestro plan mensual, te olvidas de los imprevistos y tu equipo funciona de manera óptima todo el año. ¡Asegura el rendimiento de tu aire acondicionado con nuestro plan de mantenimiento preventivo!</p>
-            </div>
-        </div>
-        
-        <div id="section6" class="section-wrapper">
-            <div class="slide-content">
-                <h2>¿Tu equipo tiene fallas?</h2>
-                <p>¿Tu aire acondicionado no enfría bien o hace ruidos extraños? Te explicamos las 5 fallas más comunes y cómo solucionarlas.</p>
-            </div>
-        </div>
-    </main>
+    <main>
+        <div id="section1" class="section-wrapper">
+            <div class="slide-content">
+                <h2>Nuestros Servicios</h2>
+                <ul>
+                    <li>Reparación: Solución de problemas en aires VRV, multisplit y calderas.</li>
+                    <li>Instalación: Montaje profesional de equipos de aire.</li>
+                    <li>Mantenimiento: Servicio preventivo para alargar la vida útil de sus equipos.</li>
+                    <li>Asesoramiento: Les ayudamos a elegir el equipo adecuado para su espacio.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="section2" class="section-wrapper">
+            <div class="slide-content">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
+            </div>
+        </div>
+        
+        <div id="section3" class="section-wrapper">
+            <div class="slide-content">
+                <h2>Contacto</h2>
+                <ul class="contact-info">
+                    <li>Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
+                    <li>Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="section4" class="section-wrapper">
+            <div class="slide-content">
+                <h2>Servicio de Instalación y Reparación</h2>
+                <p>Brindamos servicio integral para una amplia gama de sistemas: equipos ON-OFF, Inverter, VRV, multisplit y bombas de calor. Instalamos, reparamos y mantenemos su equipo para un funcionamiento óptimo.</p>
+            </div>
+        </div>
+        
+        <div id="section5" class="section-wrapper">
+            <div class="slide-content">
+                <h2>Suscripción de Mantenimiento</h2>
+                <p>Con nuestro plan mensual, te olvidas de los imprevistos y tu equipo funciona de manera óptima todo el año. ¡Asegura el rendimiento de tu aire acondicionado con nuestro plan de mantenimiento preventivo!</p>
+            </div>
+        </div>
+        
+        <div id="section6" class="section-wrapper">
+            <div class="slide-content">
+                <h2>¿Tu equipo tiene fallas?</h2>
+                <p>¿Tu aire acondicionado no enfría bien o hace ruidos extraños? Te explicamos las 5 fallas más comunes y cómo solucionarlas.</p>
+            </div>
+        </div>
+    </main>
 
-    <footer class="footer">
-        <p>&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
-    </footer>
+    <footer class="footer">
+        <p>&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
+    </footer>
 
-    <a href="https://wa.me/5491137602640?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" class="whatsapp-float-button">
-        <img src="image_0269d6.png" alt="Escríbenos por WhatsApp">
-    </a>
+    <a href="https://wa.me/5491137602640?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" class="whatsapp-float-button">
+        <img src="image_0269d6.png" alt="Escríbenos por WhatsApp">
+    </a>
 
-    <script>
-        const sections = document.querySelectorAll('.section-wrapper');
-        const body = document.body;
+    <script>
+        const sections = document.querySelectorAll('.section-wrapper');
+        const body = document.body;
 
-        // Mapeo de IDs de sección a URLs de imágenes de fondo
-        const sectionData = {
-            'section1': 'ATCLIMATIZACIÓN1.png', // Corresponde al archivo de servicios
-            'section2': 'ATCLIMATIZACIÓN2.png',
-            'section3': 'ATCLIMATIZACIÓN3.png',
-            'section4': 'URL_DE_TU_IMAGEN_4.jpg',
-            'section5': 'URL_DEL_ARCHIVO_DE_MANTENIMIENTO.jpg', // Corresponde al archivo de mantenimiento
-            'section6': 'URL_DEL_ARCHIVO_DE_FALLAS.jpg', // Corresponde al archivo de fallas
-        };
+        // Mapeo de IDs de sección a URLs de imágenes de fondo
+        const sectionData = {
+            'section1': 'ATCLIMATIZACIÓN1.png', 
+            'section2': 'ATCLIMATIZACIÓN2.png',
+            'section3': 'ATCLIMATIZACIÓN3.png',
+            'section4': 'URL_DE_TU_IMAGEN_4.jpg', 
+            'section5': 'URL_DEL_ARCHIVO_DE_MANTENIMIENTO.jpg', 
+            'section6': 'URL_DEL_ARCHIVO_DE_FALLAS.jpg', 
+        };
 
-        function updateBackgroundOnScroll() {
-            const viewportHeight = window.innerHeight;
-            let currentSection = null;
+        function updateBackgroundOnScroll() {
+            const viewportHeight = window.innerHeight;
+            let currentSection = null;
 
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                
-                // Si la parte superior de la sección está dentro de la mitad de la pantalla
-                if (sectionTop <= viewportHeight / 2 && sectionTop >= -section.offsetHeight / 2) {
-                    currentSection = section;
-                }
-            });
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                
+                if (sectionTop <= viewportHeight / 2 && sectionTop >= -section.offsetHeight / 2) {
+                    currentSection = section;
+                }
+            });
 
-            if (currentSection) {
-                const imageUrl = sectionData[currentSection.id];
-                if (imageUrl) {
-                    body.style.backgroundImage = url(${imageUrl});
-                }
-            }
-        }
+            if (currentSection) {
+                const imageUrl = sectionData[currentSection.id];
+                if (imageUrl) {
+                    body.style.backgroundImage = url(${imageUrl});
+                }
+            }
+        }
 
-        // Llama a la función de actualización cuando el usuario se desplaza
-        window.addEventListener('scroll', updateBackgroundOnScroll);
-        
-        // También la llamamos al cargar la página para establecer el fondo inicial
-        window.addEventListener('load', updateBackgroundOnScroll);
-    </script>
+        window.addEventListener('scroll', updateBackgroundOnScroll);
+        
+        window.addEventListener('load', updateBackgroundOnScroll);
+    </script>
 </body>
 </html>
-
-
