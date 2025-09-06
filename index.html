@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATCLIMATIZACIÓN - Mantenimiento y Reparación</title>
+    <title>ATCLIMATIZACIÓN - Instalación y Reparación</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
         /* Estilos base */
         body {
@@ -15,13 +16,13 @@
             padding-top: 100px; /* Espacio para el header fijo */
             color: #444;
             line-height: 1.6;
-            background-color: #fff;
+            background-color: #f0f2f5;
         }
 
         /* Encabezado fijo */
         .header {
             background-color: #fff;
-            padding: 1rem 0;
+            padding: 1rem 20px;
             position: fixed;
             top: 0;
             left: 0;
@@ -31,8 +32,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-left: 20px;
-            padding-right: 20px;
         }
 
         .header .logo {
@@ -45,28 +44,25 @@
             align-items: center;
         }
         
-        .header .contact-info span {
+        .header .contact-info .phone-number {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 1.5rem;
             color: #004d99;
-            margin-right: 15px;
-        }
-
-        .header .contact-info a {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: #008cff;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .header .contact-info .phone-number:hover {
+            color: #008cff;
         }
 
         /* Hero Section */
         .hero-section {
-            background-image: url('ATCLIMATIZACIÓN1.png'); /* Usa tu imagen de fondo principal */
+            background-image: url('URL_DE_TU_IMAGEN_PRINCIPAL.jpg');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -83,7 +79,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.5);
         }
         
         .hero-section h1 {
@@ -103,7 +99,7 @@
         
         /* Contenedor de contenido */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             padding: 2rem;
         }
@@ -111,7 +107,7 @@
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
-            background-color: #f9f9f9;
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -125,44 +121,49 @@
             color: #004d99;
         }
 
-        .section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .section ul li {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Formulario de contacto */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
         }
         
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
+        .service-item {
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .contact-form button {
-            background-color: #008cff;
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-item i {
+            font-size: 3rem;
+            color: #008cff;
+            margin-bottom: 1rem;
+        }
+        
+        /* Pie de página */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #333;
             color: #fff;
-            border: none;
-            padding: 1rem;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-
-        .contact-form button:hover {
-            background-color: #006bb3;
+        
+        .footer .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer .social-links a:hover {
+            color: #008cff;
         }
 
         /* Botón flotante de WhatsApp */
@@ -194,49 +195,55 @@
     <header class="header">
         <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
         <div class="contact-info">
-            <span>Teléfono:</span>
-            <a href="tel:+5491137602640">1137602640</a>
+            <a href="tel:+5491137602640" class="phone-number">1137602640</a>
         </div>
     </header>
 
     <main>
         <section class="hero-section">
             <h1>ATCLIMATIZACIÓN</h1>
-            <p>Mantenimiento y reparación de aires acondicionados</p>
+            <p>Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
         </section>
 
         <div class="container">
             <section id="servicios" class="section">
                 <h2>Nuestros Servicios</h2>
-                <ul>
-                    <li>✅ Reparación: Solución de problemas en aires VRV, multisplit y calderas.</li>
-                    <li>✅ Instalación: Montaje profesional de equipos de aire.</li>
-                    <li>✅ Mantenimiento: Servicio preventivo para alargar la vida útil de sus equipos.</li>
-                    <li>✅ Asesoramiento: Les ayudamos a elegir el equipo adecuado para su espacio.</li>
-                </ul>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-tools"></i>
+                        <h3>Reparación</h3>
+                        <p>Solución de problemas en aires VRV, multisplit y calderas. Diagnóstico rápido y eficiente.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Instalación</h3>
+                        <p>Montaje profesional de equipos de aire, garantizando un rendimiento óptimo desde el primer día.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Mantenimiento</h3>
+                        <p>Servicio preventivo para alargar la vida útil de sus equipos y evitar fallas inesperadas.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Asesoramiento</h3>
+                        <p>Les ayudamos a elegir el equipo adecuado para su espacio, según sus necesidades.</p>
+                    </div>
+                </div>
             </section>
             
             <section id="sobre-nosotros" class="section">
                 <h2>Sobre Nosotros</h2>
                 <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
             </section>
-            
-            <section id="contacto" class="section">
-                <h2>Contacto</h2>
-                <p style="text-align: center;">Déjenos un mensaje y nos pondremos en contacto con usted lo antes posible.</p>
-                <form action="URL_DEL_SERVICIO_DE_FORMULARIO" method="POST" class="contact-form">
-                    <input type="text" name="nombre" placeholder="Nombre completo" required>
-                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                    <input type="tel" name="telefono" placeholder="Número de teléfono" required>
-                    <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-                    <button type="submit">Enviar Mensaje</button>
-                </form>
-            </section>
         </div>
     </main>
 
     <footer class="footer">
-        <p style="text-align: center;">&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
+        <p>&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
     <a href="https://wa.me/5491137602640?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" class="whatsapp-float-button">
@@ -245,4 +252,3 @@
 
 </body>
 </html>
-
