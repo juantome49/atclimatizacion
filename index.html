@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATCLIMATIZACIÓN - Instalación y Reparación</title>
+    <title>ATCLIMATIZACIÓN | Instalación, Reparación y Mantenimiento</title>
+    <meta name="description" content="Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado, VRV, multisplit y calderas.">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lexend+Deca:wght@200;400;600&display=swap" rel="stylesheet">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Candal:400|Lexend+Deca:200,400,600&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <style>
-        /* Estilos base del híbrido */
+        /* Estilos Generales y Tipografía */
         body {
-            font-family: 'Lexend Deca', sans-serif; /* Fuente principal del sitio de Service Tobías */
             margin: 0;
-            padding-top: 100px; 
-            color: #0b1529; /* Color de texto oscuro del sitio de Service Tobías */
+            padding: 0;
+            font-family: 'Lexend Deca', sans-serif;
+            color: #0b1529;
+            background-color: #f3f5f8;
             line-height: 1.6;
-            background-color: #f3f5f8; /* Color de fondo */
         }
 
-        /* Encabezado fijo */
+        a {
+            text-decoration: none;
+            color: #1b86f1;
+        }
+
+        .text-center { text-align: center; }
+        .text-white { color: #ffffff; }
+
+        .title {
+            font-family: 'Candal', sans-serif;
+            font-weight: 600;
+            font-size: 57px;
+            line-height: 1.2em;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            font-weight: 400;
+            line-height: 1.25em;
+            color: rgba(60, 72, 84, 0.8);
+        }
+
+        /* Contenedores y Estructura */
         .header {
             background-color: #fff;
-            padding: 1rem 25px;
+            padding: 10px 25px;
             position: fixed;
             top: 0;
             left: 0;
@@ -35,53 +56,72 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .header .logo {
-            max-width: 80px;
-            height: auto;
+        
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 10px;
         }
 
-        .header .nav-menu {
+        .section {
+            padding: 70px 0;
+        }
+
+        .flex-row {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+            justify-content: center;
         }
 
-        .header .nav-menu ul {
+        .column {
+            box-sizing: border-box;
+            padding: 0 15px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        /* Estilos Específicos */
+        .header .logo {
+            width: 64px; /* Asegura que el logo tenga un tamaño similar al del ejemplo */
+        }
+
+        .nav-menu ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
             gap: 20px;
         }
-
-        .header .nav-menu li a {
-            text-decoration: none;
+        .nav-menu a {
             color: #444;
-            font-family: 'Lexend Deca', sans-serif;
             font-weight: 600;
-            font-size: 1.2rem;
             transition: color 0.3s;
         }
-
-        .header .nav-menu li a:hover {
-            color: #0098db; /* Azul de Service Tobías */
+        .nav-menu a:hover {
+            color: #0098db;
         }
-        
-        /* Hero Section */
+
         .hero-section {
-            background-image: url('URL_DE_TU_IMAGEN_PRINCIPAL.jpg');
+            background-image: url('https://servicetobiascomar.swipepages.media/2024/11/6706cb1e78311e0011e1fe28/unsplash-jspkvrhmqoo-2500.jpg'); /* Imagen de fondo original de Service Tobías */
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
             position: relative;
+            padding-top: 100px;
         }
-        
         .hero-section::before {
             content: '';
             position: absolute;
@@ -89,139 +129,90 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(11, 21, 41, 0.73);
+            z-index: 1;
         }
-        
-        .hero-section h1 {
-            font-family: 'Candal', sans-serif; /* Fuente del título de Service Tobías */
-            font-weight: 700;
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-        
-        .hero-section p {
-            font-size: 1.5rem;
-            z-index: 2;
-        }
-        
-        /* Contenedor de contenido */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem;
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        .hero-content { z-index: 2; }
 
-        .section h2 {
-            font-family: 'Candal', sans-serif; /* Fuente del título de Service Tobías */
-            font-weight: 700;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #0b1529;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        
         .service-item {
-            padding: 1.5rem;
-            background-color: #f9f9f9;
+            padding: 20px;
+            background-color: #ffffff;
             border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 1px 4px 0px rgba(0,0,0,0.1);
         }
-        
         .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-
         .service-item i {
-            font-size: 3rem;
-            color: #0098db; /* Azul de Service Tobías */
-            margin-bottom: 1rem;
+            font-size: 40px;
+            color: #0098db;
+            margin-bottom: 15px;
         }
-        
-        /* Pie de página */
+        .service-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+        .service-item p {
+            font-size: 16px;
+            color: rgba(60, 72, 84, 0.8);
+        }
+
         .footer {
             text-align: center;
-            padding: 2rem;
-            background-color: #0b1529; /* Color de fondo oscuro de Service Tobías */
+            padding: 40px 20px;
+            background-color: #0b1529;
             color: #fff;
         }
-        
         .footer .social-links a {
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 24px;
             margin: 0 10px;
-            text-decoration: none;
             transition: color 0.3s;
         }
-        
         .footer .social-links a:hover {
             color: #0098db;
         }
-
-        /* Botón flotante de WhatsApp */
         .whatsapp-float-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 100;
+        }
+        .whatsapp-float-button img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out;
         }
-
-        .whatsapp-float-button:hover {
+        .whatsapp-float-button:hover img {
             transform: scale(1.1);
         }
-
-        .whatsapp-float-button img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .whatsapp-float-button:active img {
+            transform: scale(0.95);
         }
 
         /* Adaptación a móviles */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-            .header .nav-menu {
-                margin-top: 10px;
-            }
-            .header .nav-menu ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .hero-section { height: 80vh; }
+            .title { font-size: 48px; }
+            .subtitle { font-size: 18px; }
+            .header { flex-direction: column; padding: 15px; }
+            .header .nav-menu { margin-top: 10px; }
+            .nav-menu ul { flex-direction: column; gap: 10px; }
+            .section { padding: 45px 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .column { margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
-        <nav class="nav-menu">
+        <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo"> <nav class="nav-menu">
             <ul>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
@@ -232,13 +223,15 @@
 
     <main>
         <section class="hero-section">
-            <h1>ATCLIMATIZACIÓN</h1>
-            <p>Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
+            <div class="hero-content text-center">
+                <h1 class="title text-white">ATCLIMATIZACIÓN</h1>
+                <p class="subtitle text-white">Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
+            </div>
         </section>
 
         <div class="container">
             <section id="servicios" class="section">
-                <h2>Nuestros Servicios</h2>
+                <h2 class="title text-center" style="font-size:48px;">Nuestros Servicios</h2>
                 <div class="services-grid">
                     <div class="service-item">
                         <i class="fas fa-tools"></i>
@@ -263,18 +256,17 @@
                 </div>
             </section>
             
-            <section id="sobre-nosotros" class="section">
-                <h2>Sobre Nosotros</h2>
-                <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
+            <section id="sobre-nosotros" class="section" style="background-color: #fff;">
+                <h2 class="title text-center" style="font-size:48px;">Sobre Nosotros</h2>
+                <p style="text-align: center;">Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
             </section>
 
             <section id="contacto" class="section">
-                <h2>Contacto</h2>
-                <p style="text-align: center;">Comuníquese con nosotros a través de los siguientes medios.</p>
-                <ul style="list-style: none; padding: 0; text-align: center;">
-                    <li><i class="fas fa-envelope"></i> Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
-                    <li><i class="fas fa-phone"></i> Teléfono: <a href="tel:+5491137602640">1137602640</a></li>
-                    <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
+                <h2 class="title text-center" style="font-size:48px;">Contacto</h2>
+                <ul style="list-style: none; padding: 0; text-align: center; margin-bottom: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-envelope"></i> Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-phone"></i> Teléfono: <a href="tel:+5491137602640">1137602640</a></li>
+                    <li style="margin-bottom: 10px;"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
                 </ul>
             </section>
         </div>
