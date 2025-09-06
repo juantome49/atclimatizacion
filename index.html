@@ -6,23 +6,25 @@
     <title>ATCLIMATIZACIÓN - Instalación y Reparación</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lexend+Deca:wght@200;400;600&display=swap" rel="stylesheet">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    
     <style>
-        /* Estilos base */
+        /* Estilos base del híbrido */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Lexend Deca', sans-serif; /* Fuente principal del sitio de Service Tobías */
             margin: 0;
-            padding-top: 100px; /* Espacio para el header fijo */
-            color: #444;
+            padding-top: 100px; 
+            color: #0b1529; /* Color de texto oscuro del sitio de Service Tobías */
             line-height: 1.6;
-            background-color: #f0f2f5;
+            background-color: #f3f5f8; /* Color de fondo */
         }
 
         /* Encabezado fijo */
         .header {
             background-color: #fff;
-            padding: 1rem 20px;
+            padding: 1rem 25px;
             position: fixed;
             top: 0;
             left: 0;
@@ -55,31 +57,16 @@
         .header .nav-menu li a {
             text-decoration: none;
             color: #444;
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Lexend Deca', sans-serif;
             font-weight: 600;
             font-size: 1.2rem;
             transition: color 0.3s;
         }
 
         .header .nav-menu li a:hover {
-            color: #008cff;
+            color: #0098db; /* Azul de Service Tobías */
         }
         
-        .header .contact-link {
-            text-decoration: none;
-            color: #fff;
-            background-color: #008cff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
-
-        .header .contact-link:hover {
-            background-color: #006bb3;
-        }
-
         /* Hero Section */
         .hero-section {
             background-image: url('URL_DE_TU_IMAGEN_PRINCIPAL.jpg');
@@ -106,7 +93,7 @@
         }
         
         .hero-section h1 {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Candal', sans-serif; /* Fuente del título de Service Tobías */
             font-weight: 700;
             font-size: 3rem;
             margin: 0;
@@ -136,12 +123,12 @@
         }
 
         .section h2 {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Candal', sans-serif; /* Fuente del título de Service Tobías */
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #004d99;
+            color: #0b1529;
         }
 
         .services-grid {
@@ -165,7 +152,7 @@
 
         .service-item i {
             font-size: 3rem;
-            color: #008cff;
+            color: #0098db; /* Azul de Service Tobías */
             margin-bottom: 1rem;
         }
         
@@ -173,7 +160,7 @@
         .footer {
             text-align: center;
             padding: 2rem;
-            background-color: #333;
+            background-color: #0b1529; /* Color de fondo oscuro de Service Tobías */
             color: #fff;
         }
         
@@ -186,7 +173,7 @@
         }
         
         .footer .social-links a:hover {
-            color: #008cff;
+            color: #0098db;
         }
 
         /* Botón flotante de WhatsApp */
@@ -210,6 +197,23 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        /* Adaptación a móviles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            .header .nav-menu {
+                margin-top: 10px;
+            }
+            .header .nav-menu ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
