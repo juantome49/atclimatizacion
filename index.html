@@ -60,8 +60,9 @@
             padding: 0 10px;
             position: relative;
             box-sizing: border-box;
+            margin-bottom: 20px; /* Espacio entre columnas en móviles */
         }
-
+        
         .col-1-3 { width: 33.33%; }
         .col-2-3 { width: 66.67%; }
         .col-1-2 { width: 50%; }
@@ -148,7 +149,8 @@
             padding: 40px 20px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 20px;
+            height: 100%; /* Para que todas las tarjetas tengan la misma altura */
+            box-sizing: border-box;
         }
 
         .service-card:hover {
@@ -200,6 +202,11 @@
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
         }
         
         .whatsapp-icon {
@@ -233,7 +240,7 @@
             }
             .flex-col {
                 width: 100%;
-                margin-bottom: 45px;
+                margin-bottom: 25px; /* Ajuste para espacio más consistente */
             }
             .service-card {
                 padding: 30px 15px;
@@ -247,6 +254,10 @@
             }
             .hero-subtitle {
                 font-size: 16px;
+            }
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -383,4 +394,3 @@
     </a>
 </body>
 </html>
-
