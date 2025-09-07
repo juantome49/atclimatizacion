@@ -11,14 +11,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* Estilos base del sitio */
+        /* Estilos generales */
         body {
-            font-family: 'Lexend Deca', sans-serif;
             margin: 0;
-            padding-top: 100px;
+            padding: 0;
+            font-family: "Lexend Deca", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-color: #f3f5f8;
             color: #0b1529;
             line-height: 1.6;
-            background-color: #f3f5f8;
+        }
+
+        a { text-decoration: none; color: #1b86f1; cursor: pointer; }
+        img { max-width: 100%; height: auto; vertical-align: middle; }
+        h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; }
+
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
         }
 
         /* Encabezado fijo */
@@ -36,15 +49,9 @@
             align-items: center;
         }
 
-        .header .logo {
-            max-width: 80px;
-            height: auto;
-        }
+        .header .logo { max-width: 80px; height: auto; }
 
-        .header .nav-menu {
-            display: flex;
-            align-items: center;
-        }
+        .header .nav-menu { display: flex; align-items: center; }
 
         .header .nav-menu ul {
             list-style: none;
@@ -57,63 +64,84 @@
         .header .nav-menu li a {
             text-decoration: none;
             color: #444;
-            font-family: 'Lexend Deca', sans-serif;
             font-weight: 600;
             font-size: 1.2rem;
             transition: color 0.3s;
         }
 
-        .header .nav-menu li a:hover {
-            color: #0098db;
-        }
-        
-        /* Sección Principal (Hero) */
+        .header .nav-menu li a:hover { color: #0098db; }
+
+        /* Sección Principal (Hero) - Adaptada al nuevo diseño */
         .hero-section {
-            background-image: url('https://i.ibb.co/L519V1g/pexels-photo-3773577.jpg'); /* Nueva URL de imagen de fondo alojada externamente */
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            background-image: url('https://i.ibb.co/L519V1g/pexels-photo-3773577.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
             text-align: center;
             color: #fff;
-            position: relative;
         }
         
-        .hero-section::before {
-            content: '';
+        .hero-overlay {
+            background: rgba(11, 21, 41, 0.73);
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
         
-        .hero-section h1 {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+        
+        .hero-logo { width: 80px; margin-bottom: 10px; }
+        .hero-title {
             font-family: 'Candal', sans-serif;
-            font-weight: 700;
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 3px;
+            font-weight: 600;
+            font-size: 57px;
+            line-height: 1.2em;
+            color: #ffffff;
             text-transform: uppercase;
-            z-index: 2;
+            letter-spacing: 3px;
         }
         
-        .hero-section p {
-            font-size: 1.5rem;
-            z-index: 2;
+        .hero-subtitle {
+            font-size: 19px;
+            font-weight: 400;
+            line-height: 1.25em;
+            color: #e0e0e0;
+            margin-top: 10px;
         }
         
-        /* Contenedor de contenido principal */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem;
+        .decorative-line {
+            width: 50px;
+            height: 2px;
+            background: #fff;
+            margin: 20px auto 33px;
         }
         
+        .hero-button {
+            display: inline-block;
+            padding: 15px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #0098db;
+            transition: all .3s linear;
+        }
+
+        .hero-button:hover { opacity: 0.8; }
+        
+        /* Estilos de las secciones de contenido */
+        .main-content { padding-top: 50px; }
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
@@ -145,134 +173,41 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
+        .service-item:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .service-item i { font-size: 3rem; color: #0098db; margin-bottom: 1rem; }
 
-        .service-item i {
-            font-size: 3rem;
-            color: #0098db;
-            margin-bottom: 1rem;
-        }
-
-        /* Estilos para el formulario de suscripción */
-        .subscribe-form {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-        }
-
-        .subscribe-form h3 {
-            font-family: 'Candal', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #0098db;
-        }
-
-        .subscribe-form p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .subscribe-form form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
-        }
-
-        .subscribe-form input[type="email"] {
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            max-width: 350px;
-            font-size: 1rem;
-        }
-
-        .subscribe-form button {
-            background-color: #0098db;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .subscribe-form button:hover {
-            background-color: #007bb5;
-        }
+        /* Estilos de suscripción */
+        .subscribe-form { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .subscribe-form h3 { font-family: 'Candal', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0098db; }
+        .subscribe-form p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .subscribe-form form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .subscribe-form input[type="email"] { padding: 12px 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%; max-width: 350px; font-size: 1rem; }
+        .subscribe-form button { background-color: #0098db; color: #fff; padding: 12px 25px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
+        .subscribe-form button:hover { background-color: #007bb5; }
         
         /* Pie de página */
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #0b1529;
-            color: #fff;
-        }
-        
-        .footer .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer .social-links a:hover {
-            color: #0098db;
-        }
+        .footer { text-align: center; padding: 2rem; background-color: #0b1529; color: #fff; }
+        .footer .social-links a { color: #fff; font-size: 1.5rem; margin: 0 10px; text-decoration: none; transition: color 0.3s; }
+        .footer .social-links a:hover { color: #0098db; }
 
         /* Botón flotante de WhatsApp */
         .whatsapp-float-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            position: fixed; bottom: 20px; right: 20px; z-index: 100;
+            width: 60px; height: 60px; border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out;
         }
-
-        .whatsapp-float-button:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-float-button img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .whatsapp-float-button:hover { transform: scale(1.1); }
+        .whatsapp-float-button img { width: 100%; height: auto; display: block; }
 
         /* Adaptación a móviles */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-            .header .nav-menu {
-                margin-top: 10px;
-            }
-            .header .nav-menu ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .subscribe-form input[type="email"] {
-                max-width: 100%; /* Ajusta el ancho en móviles */
-                margin-bottom: 10px;
-            }
-            .subscribe-form form {
-                flex-direction: column; /* Apila el input y el botón en móviles */
-                align-items: center;
-            }
+            .hero-title { font-size: 48px; }
+            .header { flex-direction: column; padding-top: 15px; padding-bottom: 15px; }
+            .header .nav-menu { margin-top: 10px; }
+            .header .nav-menu ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .subscribe-form input[type="email"] { max-width: 100%; margin-bottom: 10px; }
+            .subscribe-form form { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -291,11 +226,17 @@
 
     <main>
         <section class="hero-section">
-            <h1>ATCLIMATIZACIÓN</h1>
-            <p>Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <img src="IMG-20250905-WA0001.jpg" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
+                <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
+                <p class="hero-subtitle">Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
+                <div class="decorative-line"></div>
+                <a href="#contacto" class="hero-button">Contáctanos</a>
+            </div>
         </section>
 
-        <div class="container">
+        <div class="main-content container">
             <section id="servicios" class="section">
                 <h2>Nuestros Servicios</h2>
                 <div class="services-grid">
