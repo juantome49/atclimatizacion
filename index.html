@@ -53,8 +53,8 @@
 
         .header .nav-menu { 
             display: flex; 
-            flex-grow: 1; /* Permite que el menú ocupe el espacio disponible */
-            justify-content: center; /* Centra los elementos del menú */
+            flex-grow: 1; 
+            justify-content: center; 
             align-items: center; 
         }
 
@@ -76,13 +76,13 @@
 
         .header .nav-menu li a:hover { color: #0098db; }
 
-        /* Sección Principal (Hero) - Adaptada al nuevo diseño */
+        /* Sección Principal (Hero) */
         .hero-section {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://images.pexels.com/photos/3773577/pexels-photo-3773577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Imagen: técnico trabajando en aire acondicionado */
+            background-image: url('https://images.pexels.com/photos/3773577/pexels-photo-3773577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -279,8 +279,12 @@
         
         /* Pie de página */
         .footer { text-align: center; padding: 2rem; background-color: #0b1529; color: #fff; }
-        .footer .social-links a { color: #fff; font-size: 1.5rem; margin: 0 10px; text-decoration: none; transition: color 0.3s; }
-        .footer .social-links a:hover { color: #0098db; }
+        .footer p { margin: 0; }
+        .footer .designer-text {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
 
         /* Botón flotante de WhatsApp */
         .whatsapp-float-button {
@@ -301,7 +305,7 @@
             .subscribe-form input[type="email"] { max-width: 100%; margin-bottom: 10px; }
             .subscribe-form form { flex-direction: column; align-items: center; }
             .company-section { flex-direction: column; }
-            .company-section.reverse { flex-direction: column; } /* Asegura la columna en móviles */
+            .company-section.reverse { flex-direction: column; }
         }
     </style>
 </head>
@@ -439,10 +443,8 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
+        <p>© 2025 ATCLIMATIZACIÓN. Todos los derechos reservados.</p>
+        <p class="designer-text">Diseño web de Techne Nest</p>
     </footer>
 
     <a href="https://wa.me/5491137602640?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" class="whatsapp-float-button">
