@@ -51,7 +51,12 @@
 
         .header .logo { max-width: 80px; height: auto; }
 
-        .header .nav-menu { display: flex; align-items: center; }
+        .header .nav-menu { 
+            display: flex; 
+            flex-grow: 1; /* Permite que el menú ocupe el espacio disponible */
+            justify-content: center; /* Centra los elementos del menú */
+            align-items: center; 
+        }
 
         .header .nav-menu ul {
             list-style: none;
@@ -77,7 +82,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://servicetobiascomar.swipepages.media/2024/11/6706cb1e78311e0011e1fe28/unsplash-jspkvrhmqoo-2500.jpg'); /* Imagen de fondo del código que proporcionaste */
+            background-image: url('https://images.pexels.com/photos/3773577/pexels-photo-3773577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Imagen: técnico trabajando en aire acondicionado */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -176,6 +181,53 @@
         .service-item:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
         .service-item i { font-size: 3rem; color: #0098db; margin-bottom: 1rem; }
 
+        /* Estilos de la sección Atención a Empresas */
+        .company-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .company-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .company-section .text-content, .company-section .image-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .company-section .text-content h3 {
+            font-family: 'Candal', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0098db;
+        }
+        .company-section .text-content p {
+            margin-bottom: 1rem;
+        }
+        .company-section .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+        .company-section .features-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #0b1529;
+        }
+        .company-section .features-list li i {
+            color: #0098db;
+            margin-right: 10px;
+        }
+        .company-section .image-content img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         /* Estilos de suscripción */
         .subscribe-form { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
         .subscribe-form h3 { font-family: 'Candal', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0098db; }
@@ -184,6 +236,46 @@
         .subscribe-form input[type="email"] { padding: 12px 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%; max-width: 350px; font-size: 1rem; }
         .subscribe-form button { background-color: #0098db; color: #fff; padding: 12px 25px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
         .subscribe-form button:hover { background-color: #007bb5; }
+
+        /* Estilos del formulario de contacto */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form-container label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .contact-form-container input, .contact-form-container textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: 1rem;
+        }
+        .contact-form-container textarea {
+            resize: vertical;
+        }
+        .contact-form-container button {
+            background-color: #0098db;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form-container button:hover {
+            background-color: #007bb5;
+        }
         
         /* Pie de página */
         .footer { text-align: center; padding: 2rem; background-color: #0b1529; color: #fff; }
@@ -208,6 +300,8 @@
             .header .nav-menu ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .subscribe-form input[type="email"] { max-width: 100%; margin-bottom: 10px; }
             .subscribe-form form { flex-direction: column; align-items: center; }
+            .company-section { flex-direction: column; }
+            .company-section.reverse { flex-direction: column; } /* Asegura la columna en móviles */
         }
     </style>
 </head>
@@ -218,6 +312,7 @@
         <nav class="nav-menu">
             <ul>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#atencion-empresas">Empresas</a></li>
                 <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -232,7 +327,7 @@
                 <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
                 <p class="hero-subtitle">Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
                 <div class="decorative-line"></div>
-                <a href="#contacto" class="hero-button">Contáctanos</a>
+                <a href="#contacto" class="hero-button">Solicitá tu relevamiento técnico</a>
             </div>
         </section>
 
@@ -272,17 +367,69 @@
                 </div>
             </section>
             
+            <section id="atencion-empresas" class="section">
+                <h2>Atención a Empresas</h2>
+                <div class="company-section">
+                    <div class="text-content">
+                        <h3>Soluciones Profesionales para Empresas</h3>
+                        <p>En ATCLIMATIZACIÓN, somos el aliado confiable para la refrigeración de tu negocio. Con servicios especializados en mantenimiento preventivo y correctivo, aseguramos que tus equipos funcionen siempre al máximo.</p>
+                        <p>Ofrecemos atención de urgencias 24/7 para que cualquier problema se resuelva rápidamente, sin afectar tus operaciones. Además, nuestros servicios incluyen limpieza con hidrolavadora para mejorar la eficiencia y durabilidad de los equipos.</p>
+                        <p>¡Tu inversión en refrigeración está en buenas manos!</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Garantía por Escrito</li>
+                            <li><i class="fas fa-check-circle"></i> Calidad Asegurada</li>
+                            <li><i class="fas fa-check-circle"></i> Atención de urgencias 24/7</li>
+                        </ul>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.pexels.com/photos/3888367/pexels-photo-3888367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Técnico trabajando en equipo industrial">
+                    </div>
+                </div>
+
+                <div class="company-section reverse" style="margin-top: 3rem;">
+                    <div class="text-content">
+                        <h3>Mantenimiento que tu Empresa Necesita</h3>
+                        <p>Entendemos la importancia de tener sistemas de climatización y refrigeración siempre operativos para el funcionamiento de tu empresa. Nuestros planes de mantenimiento están diseñados para minimizar interrupciones y optimizar el rendimiento energético.</p>
+                        <p>Desde la inspección rutinaria hasta la reparación de componentes complejos, nuestro equipo está preparado para ofrecer soluciones rápidas y eficientes que prolonguen la vida útil de sus equipos y garanticen un ambiente de trabajo óptimo.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.pexels.com/photos/3862217/pexels-photo-3862217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Interior de una oficina moderna con aire acondicionado">
+                    </div>
+                </div>
+
+            </section>
+
             <section id="sobre-nosotros" class="section">
                 <h2>Sobre Nosotros</h2>
                 <p>En ATCLIMATIZACIÓN, nos enorgullece ser su socio de confianza en soluciones integrales de climatización. Con una trayectoria sólida y años de experiencia en el sector, nuestro equipo está compuesto por técnicos altamente cualificados y apasionados por ofrecer un confort inigualable en cada proyecto.</p>
                 <p>Desde nuestros inicios, nuestra misión ha sido clara: garantizar un ambiente perfecto y saludable en cualquier estación del año. Nos especializamos en la instalación, reparación y mantenimiento de una amplia gama de equipos de aire acondicionado, incluyendo sistemas VRV, multisplit, y soluciones de calefacción, adaptándonos siempre a las necesidades específicas de hogares, oficinas y locales comerciales.</p>
                 <p>Nos comprometemos firmemente con la excelencia, la eficiencia y, sobre todo, con la satisfacción de nuestros clientes. Utilizando únicamente materiales de primera calidad y aplicando las técnicas más avanzadas de la industria, aseguramos trabajos duraderos y de alto rendimiento. En ATCLIMATIZACIÓN, su bienestar es nuestra prioridad. Confíe en nosotros para un servicio profesional, rápido, transparente y con la garantía de expertos.</p>
+                <div style="margin-top: 2rem;">
+                    <img src="https://images.pexels.com/photos/5926394/pexels-photo-5926394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Equipo de técnicos de climatización en una reunión" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
             </section>
 
             <section id="contacto" class="section">
-                <h2>Contacto</h2>
-                <p style="text-align: center;">Comuníquese con nosotros a través de los siguientes medios.</p>
-                <ul style="list-style: none; padding: 0; text-align: center;">
+                <h2>Contáctanos</h2>
+                <div class="contact-form-container">
+                    <p style="text-align: center; margin-bottom: 20px;">Completa el formulario para solicitar tu relevamiento técnico.</p>
+                    <form action="#" method="post">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" required>
+                        
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+                <ul style="list-style: none; padding: 0; text-align: center; margin-top: 40px;">
                     <li><i class="fas fa-envelope"></i> Email: <a href="mailto:atclimatizacion2.1@gmail.com">atclimatizacion2.1@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i> Teléfono: <a href="tel:+5491137602640">1137602640</a></li>
                     <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/atclimatizacion2.1" target="_blank">@atclimatizacion2.1</a></li>
