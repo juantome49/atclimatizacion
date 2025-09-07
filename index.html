@@ -40,25 +40,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://images.pexels.com/photos/3773578/pexels-photo-3773578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
+            background-color: #f3f5f8; /* Color de fondo igual al del body */
             position: relative;
             text-align: center;
-            color: #fff;
+            color: #0b1529; /* Color de texto oscuro para el hero */
             box-sizing: border-box;
         }
         
-        .hero-overlay {
-            background: rgba(11, 21, 41, 0.73);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+        /* El overlay ya no es necesario ya que el fondo es claro y las letras oscuras */
+        .hero-overlay { display: none; }
         
         .hero-content {
             position: relative;
@@ -72,7 +62,7 @@
             font-weight: 600;
             font-size: 57px;
             line-height: 1.2em;
-            color: #ffffff;
+            color: #0b1529;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -81,14 +71,14 @@
             font-size: 19px;
             font-weight: 400;
             line-height: 1.25em;
-            color: #e0e0e0;
+            color: #444;
             margin-top: 10px;
         }
         
         .decorative-line {
             width: 50px;
             height: 2px;
-            background: #fff;
+            background: #0b1529;
             margin: 20px auto 33px;
         }
         
@@ -302,7 +292,6 @@
 
     <main>
         <section class="hero-section">
-            <div class="hero-overlay"></div>
             <div class="hero-content">
                 <img src="https://i.ibb.co/C0k7B43/atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
                 <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
