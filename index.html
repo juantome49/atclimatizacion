@@ -18,8 +18,8 @@
             font-family: "Lexend Deca", sans-serif;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            background-color: #f3f5f8;
-            color: #0b1529;
+            background-color: #00363A; /* Color de fondo Géminis oscuro */
+            color: #fff; /* Color de texto general blanco */
             line-height: 1.6;
         }
 
@@ -40,15 +40,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f3f5f8; /* Color de fondo igual al del body */
+            background-color: #00363A; /* Mismo color que el body */
             position: relative;
             text-align: center;
-            color: #0b1529; /* Color de texto oscuro para el hero */
+            color: #fff; /* Texto blanco para legibilidad */
             box-sizing: border-box;
         }
-        
-        /* El overlay ya no es necesario ya que el fondo es claro y las letras oscuras */
-        .hero-overlay { display: none; }
         
         .hero-content {
             position: relative;
@@ -62,7 +59,7 @@
             font-weight: 600;
             font-size: 57px;
             line-height: 1.2em;
-            color: #0b1529;
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -71,14 +68,14 @@
             font-size: 19px;
             font-weight: 400;
             line-height: 1.25em;
-            color: #444;
+            color: #e0e0e0;
             margin-top: 10px;
         }
         
         .decorative-line {
             width: 50px;
             height: 2px;
-            background: #0b1529;
+            background: #fff;
             margin: 20px auto 33px;
         }
         
@@ -99,9 +96,10 @@
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
-            background-color: #fff;
+            background-color: #fff; /* Fondo blanco para las secciones */
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #0b1529; /* Color de texto oscuro para las secciones */
         }
 
         .section h2 {
@@ -157,6 +155,7 @@
         }
         .company-section .text-content p {
             margin-bottom: 1rem;
+            color: #0b1529;
         }
         .company-section .features-list {
             list-style: none;
@@ -182,7 +181,7 @@
         .subscribe-form h3 { font-family: 'Candal', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0098db; }
         .subscribe-form p { margin-bottom: 1.5rem; font-size: 1.1rem; }
         .subscribe-form form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .subscribe-form input[type="email"] { padding: 12px 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%; max-width: 350px; font-size: 1rem; }
+        .subscribe-form input[type="email"] { padding: 12px 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%; max-width: 350px; font-size: 1rem; color: #0b1529; }
         .subscribe-form button { background-color: #0098db; color: #fff; padding: 12px 25px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
         .subscribe-form button:hover { background-color: #007bb5; }
 
@@ -201,6 +200,7 @@
             padding: 2rem;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #0b1529; /* Texto oscuro para el globo */
         }
 
         .diferencia-item:hover {
@@ -293,7 +293,7 @@
     <main>
         <section class="hero-section">
             <div class="hero-content">
-                <img src="https://i.ibb.co/C0k7B43/atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
+                <img src="atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
                 <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
                 <p class="hero-subtitle">Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
                 <div class="decorative-line"></div>
