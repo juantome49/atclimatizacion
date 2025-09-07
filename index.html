@@ -34,44 +34,24 @@
             padding: 2rem;
         }
 
-        /* Encabezado fijo (solo para ocupar espacio si se necesitara, pero el logo fue removido) */
-        .header {
-            background-color: #fff; /* Se mantiene para el fondo si se scrollea */
-            padding: 1rem 25px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 80px; /* Para que el contenido no quede debajo */
-        }
-        .header img.logo {
-            display: none; /* Oculta el logo del header */
-        }
-
         /* Sección Principal (Hero) */
         .hero-section {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #000; /* Fondo negro sólido */
+            background-image: url('https://images.pexels.com/photos/3773578/pexels-photo-3773578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
             position: relative;
             text-align: center;
             color: #fff;
-            padding-top: 80px; /* Ajuste para el header fijo */
-            box-sizing: border-box; /* Para que el padding no añada altura extra */
+            box-sizing: border-box;
         }
         
         .hero-overlay {
-            background: rgba(0, 0, 0, 0.5); /* Overlay más oscuro para el fondo negro */
+            background: rgba(11, 21, 41, 0.73);
             position: absolute;
             top: 0;
             left: 0;
@@ -86,7 +66,7 @@
             padding: 0 20px;
         }
         
-        .hero-logo { width: 120px; margin-bottom: 20px; } /* Ajuste del tamaño del logo central */
+        .hero-logo { width: 120px; margin-bottom: 20px; }
         .hero-title {
             font-family: 'Candal', sans-serif;
             font-weight: 600;
@@ -125,7 +105,7 @@
         .hero-button:hover { opacity: 0.8; }
         
         /* Estilos de las secciones de contenido */
-        .main-content { padding-top: 50px; }
+        .main-content { padding-top: 0; }
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
@@ -226,7 +206,7 @@
 
         .diferencia-item {
             background-color: #f9f9f9;
-            border-radius: 12px; /* Bordes más redondeados para "globos" */
+            border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.1);
             padding: 2rem;
             text-align: center;
@@ -312,27 +292,20 @@
         /* Adaptación a móviles */
         @media (max-width: 768px) {
             .hero-title { font-size: 48px; }
-            .hero-logo { width: 100px; } /* Ajuste de tamaño para móviles */
-            .header { height: auto; padding: 10px 20px; } /* Ajuste de altura del header */
-            .subscribe-form input[type="email"] { max-width: 100%; margin-bottom: 10px; }
-            .subscribe-form form { flex-direction: column; align-items: center; }
-            .company-section { flex-direction: column; }
-            .company-section.reverse { flex-direction: column; }
-            .diferencia-grid { grid-template-columns: 1fr; } /* Una columna en móviles para "Lo que nos diferencia" */
+            .hero-logo { width: 100px; }
+            .diferencia-grid { grid-template-columns: 1fr; }
             .diferencia-item { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        </header>
-
     <main>
         <section class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <img src="https://i.ibb.co/C0k7B43/atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo"> <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
+                <img src="https://i.ibb.co/C0k7B43/atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
+                <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
                 <p class="hero-subtitle">Expertos en instalación, reparación y mantenimiento de equipos de aire acondicionado.</p>
                 <div class="decorative-line"></div>
                 <a href="#contacto" class="hero-button">Solicitá tu relevamiento técnico</a>
@@ -412,15 +385,15 @@
                 <div class="diferencia-grid">
                     <div class="diferencia-item">
                         <h3>Tecnología de última generación</h3>
-                        <p>Utilizamos **herramientas y técnicas avanzadas** para cada servicio. En la limpieza de equipos, por ejemplo, empleamos **hidrolavadoras industriales** que garantizan una limpieza profunda de los serpentines, lo que no solo mejora la eficiencia de tus equipos, sino que también prolonga su vida útil y reduce el consumo energético. Nuestro compromiso es con la innovación para tu mayor beneficio.</p>
+                        <p>Utilizamos herramientas y técnicas avanzadas para cada servicio. En la limpieza de equipos, por ejemplo, empleamos hidrolavadoras industriales que garantizan una limpieza profunda de los serpentines, lo que no solo mejora la eficiencia de tus equipos, sino que también prolonga su vida útil y reduce el consumo energético. Nuestro compromiso es con la innovación para tu mayor beneficio.</p>
                     </div>
                     <div class="diferencia-item">
                         <h3>Garantía por escrito en todos nuestros servicios</h3>
-                        <p>Tu tranquilidad es nuestra prioridad. Por eso, aseguramos la **calidad de nuestro trabajo con una garantía por escrito** en cada servicio realizado. Esto te da la confianza de saber que cualquier instalación, reparación o mantenimiento está respaldado por nuestro compromiso con la excelencia y la durabilidad, asegurando que tus equipos están en las mejores manos.</p>
+                        <p>Tu tranquilidad es nuestra prioridad. Por eso, aseguramos la calidad de nuestro trabajo con una garantía por escrito en cada servicio realizado. Esto te da la confianza de saber que cualquier instalación, reparación o mantenimiento está respaldado por nuestro compromiso con la excelencia y la durabilidad, asegurando que tus equipos están en las mejores manos.</p>
                     </div>
                     <div class="diferencia-item">
                         <h3>Atención personalizada y familiar</h3>
-                        <p>Como una **empresa familiar**, valoramos un trato cercano y adaptado a las necesidades de cada cliente. No solo ofrecemos un servicio técnico, sino que construimos una relación de confianza. Entendemos que cada hogar y negocio es único, por eso nos tomamos el tiempo para escucharte, entender tus necesidades y ofrecerte una solución a medida, con la dedicación y el cuidado que esperarías de la familia.</p>
+                        <p>Como una empresa familiar, valoramos un trato cercano y adaptado a las necesidades de cada cliente. No solo ofrecemos un servicio técnico, sino que construimos una relación de confianza. Entendemos que cada hogar y negocio es único, por eso nos tomamos el tiempo para escucharte, entender tus necesidades y ofrecerte una solución a medida, con la dedicación y el cuidado que esperarías de la familia.</p>
                     </div>
                 </div>
             </section>
