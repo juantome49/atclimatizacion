@@ -23,7 +23,7 @@
             line-height: 1.6;
         }
 
-        a { text-decoration: none; color: #1b86f1; cursor: pointer; }
+        a { text-decoration: none; color: #0098db; cursor: pointer; } /* Enlaces en azul claro */
         img { max-width: 100%; height: auto; vertical-align: middle; }
         h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; }
 
@@ -45,11 +45,30 @@
             text-align: center;
             color: #fff; /* Texto blanco para legibilidad */
             box-sizing: border-box;
+            overflow: hidden; /* Asegura que la imagen de fondo no se desborde */
         }
         
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1; /* Para que esté detrás del contenido */
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cubre todo el espacio manteniendo la relación de aspecto */
+            filter: brightness(0.4); /* Oscurece la imagen para que el texto sea legible */
+            transform: scale(1.1); /* Ligeramente más grande para evitar bordes blancos en algunos navegadores */
+        }
+
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Para que esté por encima de la imagen de fondo */
             padding: 0 20px;
         }
         
@@ -96,10 +115,9 @@
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
-            background-color: #fff; /* Fondo blanco para las secciones */
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            color: #0b1529; /* Color de texto oscuro para las secciones */
+            background-color: #00363A; /* Fondo oscuro principal para las secciones */
+            border-radius: 8px; 
+            color: #fff; /* Color de texto blanco para las secciones */
         }
 
         .section h2 {
@@ -108,7 +126,7 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #0b1529;
+            color: #fff; /* Títulos de sección en blanco */
         }
 
         .services-grid {
@@ -120,13 +138,16 @@
         
         .service-item {
             padding: 1.5rem;
-            background-color: #f9f9f9;
+            background-color: #004D52; /* Fondo para los items de servicio, un poco más claro que el principal */
             border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Sombra para el "globo" */
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .service-item:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .service-item:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
         .service-item i { font-size: 3rem; color: #0098db; margin-bottom: 1rem; }
+        .service-item h3 { color: #fff; } /* Título del servicio en blanco */
+        .service-item p { color: #e0e0e0; } /* Texto del servicio en blanco ligeramente más tenue */
 
         /* Estilos de la sección Atención a Empresas */
         .company-section {
@@ -151,7 +172,7 @@
             font-family: 'Candal', sans-serif;
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #0098db;
+            color: #0098db; /* Títulos de empresas en azul claro */
         }
         
         .company-section .text-content h4 {
@@ -159,12 +180,12 @@
             font-size: 1.4rem;
             margin-top: 2rem;
             margin-bottom: 0.5rem;
-            color: #0b1529;
+            color: #fff; /* Subtítulos de empresa en blanco */
         }
 
         .company-section .text-content p {
             margin-bottom: 1rem;
-            color: #0b1529;
+            color: #e0e0e0; /* Texto de empresa en blanco ligeramente más tenue */
         }
         .company-section .features-list {
             list-style: none;
@@ -174,24 +195,56 @@
         .company-section .features-list li {
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #0b1529;
+            color: #fff; /* Texto de lista en blanco */
         }
         .company-section .features-list li i {
             color: #0098db;
             margin-right: 10px;
         }
-        .company-section .image-content img {
+        .company-section .image-content {
+            background-color: #004D52; /* Fondo un poco más claro para el globo de la imagen */
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para el "globo" de la imagen */
+            padding: 1rem; /* Espacio alrededor de la imagen dentro del globo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .company-section .image-content img {
+            border-radius: 4px; /* Bordes redondeados un poco menos pronunciados para la imagen interna */
         }
 
         /* Estilos de suscripción */
-        .subscribe-form { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; }
+        .subscribe-form { 
+            text-align: center; 
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid #004D52; /* Línea divisoria más oscura */
+            background-color: #00363A; /* Mismo fondo que la sección */
+        }
         .subscribe-form h3 { font-family: 'Candal', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: #0098db; }
-        .subscribe-form p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .subscribe-form p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #e0e0e0; }
         .subscribe-form form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .subscribe-form input[type="email"] { padding: 12px 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%; max-width: 350px; font-size: 1rem; color: #0b1529; }
-        .subscribe-form button { background-color: #0098db; color: #fff; padding: 12px 25px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
+        .subscribe-form input[type="email"] { 
+            padding: 12px 15px; 
+            border: 1px solid #0098db; /* Borde del input en azul */
+            border-radius: 5px; 
+            width: 100%; 
+            max-width: 350px; 
+            font-size: 1rem; 
+            color: #0b1529; /* Color de texto oscuro para el input */
+            background-color: #fff; /* Fondo blanco para el input */
+        }
+        .subscribe-form button { 
+            background-color: #0098db; 
+            color: #fff; 
+            padding: 12px 25px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
         .subscribe-form button:hover { background-color: #007bb5; }
 
         /* Estilos de la sección "Lo que nos diferencia" */
@@ -203,36 +256,40 @@
         }
 
         .diferencia-item {
-            background-color: #f9f9f9;
+            background-color: #004D52; /* Fondo oscuro para los globos de diferencia */
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra para el "globo" */
             padding: 2rem;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #0b1529; /* Texto oscuro para el globo */
+            color: #fff; /* Texto blanco para el globo */
         }
 
         .diferencia-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         .diferencia-item h3 {
             font-family: 'Candal', sans-serif;
             font-size: 1.8rem;
-            color: #0098db;
+            color: #0098db; /* Título en azul claro */
             margin-bottom: 1rem;
         }
 
         .diferencia-item p {
             font-size: 1.1rem;
-            color: #333;
+            color: #e0e0e0; /* Texto en blanco ligeramente más tenue */
         }
 
         /* Estilos del formulario de contacto */
         .contact-form-container {
             max-width: 600px;
             margin: 0 auto;
+            background-color: #004D52; /* Fondo oscuro para el contenedor del formulario */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
         .contact-form-container form {
             display: flex;
@@ -243,14 +300,17 @@
             font-weight: 600;
             margin-bottom: 5px;
             display: block;
+            color: #fff; /* Labels en blanco */
         }
         .contact-form-container input, .contact-form-container textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #0098db; /* Borde del input en azul */
             border-radius: 5px;
             font-family: 'Lexend Deca', sans-serif;
             font-size: 1rem;
+            background-color: #fff; /* Fondo blanco para inputs */
+            color: #0b1529; /* Texto oscuro para inputs */
         }
         .contact-form-container textarea {
             resize: vertical;
@@ -267,6 +327,9 @@
         }
         .contact-form-container button:hover {
             background-color: #007bb5;
+        }
+        .contact-form-container p {
+            color: #e0e0e0; /* Texto descriptivo del formulario en blanco tenue */
         }
         
         /* Pie de página */
@@ -294,6 +357,10 @@
             .hero-logo { width: 100px; }
             .diferencia-grid { grid-template-columns: 1fr; }
             .diferencia-item { padding: 1.5rem; }
+            .company-section .text-content, .company-section .image-content {
+                min-width: unset; /* Reiniciar min-width en móviles */
+                flex-basis: 100%; /* Ocupar todo el ancho */
+            }
         }
     </style>
 </head>
@@ -301,6 +368,9 @@
 
     <main>
         <section class="hero-section">
+            <div class="hero-background">
+                <img src="https://img.interempresas.net/fotos/3726488.jpeg" alt="Equipos de aire acondicionado en un edificio">
+            </div>
             <div class="hero-content">
                 <img src="atclimatizacion.png" alt="Logo de ATCLIMATIZACIÓN" class="hero-logo">
                 <h1 class="hero-title">ATCLIMATIZACIÓN</h1>
