@@ -132,7 +132,7 @@
         .company-section {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: flex-start; /* Alinea el contenido en la parte superior */
             gap: 2rem;
             margin-top: 2rem;
             text-align: left;
@@ -146,13 +146,22 @@
             flex: 1;
             min-width: 300px;
         }
-
-        .company-section .text-content h3 {
+        
+        .company-section h3 {
             font-family: 'Candal', sans-serif;
             font-size: 2rem;
             margin-bottom: 1rem;
             color: #0098db;
         }
+        
+        .company-section .text-content h4 {
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #0b1529;
+        }
+
         .company-section .text-content p {
             margin-bottom: 1rem;
             color: #0b1529;
@@ -341,15 +350,21 @@
                 <h2>Atención a Empresas</h2>
                 <div class="company-section">
                     <div class="text-content">
-                        <h3>Soluciones Profesionales para Empresas</h3>
-                        <p>En ATCLIMATIZACIÓN, somos el aliado confiable para la refrigeración de tu negocio. Con servicios especializados en mantenimiento preventivo y correctivo, aseguramos que tus equipos funcionen siempre al máximo.</p>
-                        <p>Ofrecemos atención de urgencias 24/7 para que cualquier problema se resuelva rápidamente, sin afectar tus operaciones. Además, nuestros servicios incluyen limpieza con hidrolavadora para mejorar la eficiencia y durabilidad de los equipos.</p>
-                        <p>¡Tu inversión en refrigeración está en buenas manos!</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> Garantía por Escrito</li>
-                            <li><i class="fas fa-check-circle"></i> Calidad Asegurada</li>
-                            <li><i class="fas fa-check-circle"></i> Atención de urgencias 24/7</li>
-                        </ul>
+                        <h3>Soluciones Integrales para tu Negocio</h3>
+                        <p>En ATCLIMATIZACIÓN, somos el aliado estratégico para la refrigeración y climatización de tu empresa. Nuestros servicios están diseñados para garantizar la máxima eficiencia, fiabilidad y continuidad de tus operaciones.</p>
+                        
+                        <h4>Mantenimiento Preventivo de Sistemas de Refrigeración y Aire Acondicionado</h4>
+                        <p>Nos encargamos de que tus equipos funcionen de manera eficiente todo el año, evitando costosos tiempos de inactividad y reparaciones inesperadas. Realizamos inspecciones regulares que incluyen la limpieza profunda con tecnología de hidrolavado y ajustes necesarios para prolongar la vida útil de tus equipos.</p>
+                        
+                        <h4>Mantenimiento Correctivo y Reparación de Cámaras Frigoríficas</h4>
+                        <p>Cuando surgen fallas, actuamos rápidamente para resolver cualquier problema en tus cámaras frigoríficas o sistemas de refrigeración. Detectamos y corregimos averías con precisión, minimizando el tiempo de parada de tus operaciones.</p>
+
+                        <h4>Instalación Profesional de Equipos de Refrigeración y Aire Acondicionado</h4>
+                        <p>Ofrecemos un servicio completo de instalación de sistemas de refrigeración industrial y comercial, garantizando una instalación adecuada y adaptada a las necesidades específicas de tu negocio.</p>
+
+                        <h4>Servicio de Urgencias en Refrigeración 24/7</h4>
+                        <p>Sabemos que los problemas de refrigeración pueden ocurrir en cualquier momento. Por eso, estamos disponibles las 24 horas del día, los 7 días de la semana, para atender emergencias y asegurar que tus sistemas se mantengan operativos.</p>
+
                     </div>
                     <div class="image-content">
                         <img src="https://images.pexels.com/photos/5926330/pexels-photo-5926330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instalación de aire acondicionado comercial">
