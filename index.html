@@ -12,12 +12,15 @@
     
     <style>
         /* Estilos generales */
+        *, *::before, *::after {
+            box-sizing: border-box; /* Esto asegura que el padding y los bordes no afecten el ancho de los elementos */
+        }
         body {
             margin: 0;
             padding: 0;
             font-family: "Lexend Deca", sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita el scroll horizontal en dispositivos móviles */
             background-color: #00363A; /* Color de fondo Géminis oscuro */
             color: #fff; /* Color de texto general blanco */
             line-height: 1.6;
