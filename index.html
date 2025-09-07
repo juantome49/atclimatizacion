@@ -69,7 +69,7 @@
         
         /* Sección Principal (Hero) */
         .hero-section {
-            background-image: url('https://images.pexels.com/photos/3773577/pexels-photo-3773577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-image: url('https://i.ibb.co/L519V1g/pexels-photo-3773577.jpg'); /* URL de imagen de fondo alojada externamente */
             background-size: cover;
             background-position: center;
             height: 70vh;
@@ -155,6 +155,57 @@
             color: #0098db;
             margin-bottom: 1rem;
         }
+
+        /* Estilos para el formulario de suscripción */
+        .subscribe-form {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .subscribe-form h3 {
+            font-family: 'Candal', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0098db;
+        }
+
+        .subscribe-form p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .subscribe-form form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 350px;
+            font-size: 1rem;
+        }
+
+        .subscribe-form button {
+            background-color: #0098db;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #007bb5;
+        }
         
         /* Pie de página */
         .footer {
@@ -214,13 +265,21 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            .subscribe-form input[type="email"] {
+                max-width: 100%; /* Ajusta el ancho en móviles */
+                margin-bottom: 10px;
+            }
+            .subscribe-form form {
+                flex-direction: column; /* Apila el input y el botón en móviles */
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <img src="atclimatizacion.png" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
+        <img src="IMG-20250905-WA0001.jpg" alt="Logotipo ATCLIMATIZACIÓN" class="logo">
         <nav class="nav-menu">
             <ul>
                 <li><a href="#servicios">Servicios</a></li>
@@ -243,29 +302,39 @@
                     <div class="service-item">
                         <i class="fas fa-tools"></i>
                         <h3>Reparación</h3>
-                        <p>Solución de problemas en aires VRV, multisplit y calderas. Diagnóstico rápido y eficiente.</p>
+                        <p>Solución de problemas en aires VRV, multisplit y calderas. Diagnóstico rápido y eficiente para restaurar el confort en su hogar o negocio.</p>
                     </div>
                     <div class="service-item">
                         <i class="fas fa-cogs"></i>
                         <h3>Instalación</h3>
-                        <p>Montaje profesional de equipos de aire, garantizando un rendimiento óptimo desde el primer día.</p>
+                        <p>Montaje profesional y seguro de todo tipo de equipos de aire acondicionado, garantizando un rendimiento óptimo y una larga vida útil desde el primer día.</p>
                     </div>
                     <div class="service-item">
                         <i class="fas fa-stethoscope"></i>
                         <h3>Mantenimiento</h3>
-                        <p>Servicio preventivo para alargar la vida útil de sus equipos y evitar fallas inesperadas.</p>
+                        <p>Servicio preventivo y correctivo para alargar la vida útil de sus equipos, mejorar su eficiencia energética y evitar fallas inesperadas. ¡Mantenga su aire siempre a punto!</p>
                     </div>
                     <div class="service-item">
                         <i class="fas fa-hands-helping"></i>
                         <h3>Asesoramiento</h3>
-                        <p>Les ayudamos a elegir el equipo adecuado para su espacio, según sus necesidades.</p>
+                        <p>Le ayudamos a elegir el equipo de climatización adecuado para su espacio, considerando sus necesidades específicas, presupuesto y eficiencia energética.</p>
                     </div>
+                </div>
+
+                <div class="subscribe-form">
+                    <h3>Mantente Informado</h3>
+                    <p>Recibe nuestras últimas ofertas, consejos de mantenimiento y novedades directamente en tu email.</p>
+                    <form action="#" method="post">
+                        <input type="email" name="email" placeholder="Introduce tu email" required>
+                        <button type="submit">Suscribirme</button>
+                    </form>
                 </div>
             </section>
             
             <section id="sobre-nosotros" class="section">
                 <h2>Sobre Nosotros</h2>
-                <p>Somos un equipo de técnicos profesionales dedicados a ofrecer soluciones de climatización de alta calidad. Con años de experiencia, garantizamos un servicio confiable y eficiente para todas sus necesidades de instalación, reparación y mantenimiento de equipos de aire acondicionado y calefacción.</p>
+                <p>En **ATCLIMATIZACIÓN**, somos un equipo de técnicos altamente cualificados y apasionados por el confort. Contamos con años de experiencia en el sector de la climatización, ofreciendo soluciones integrales para hogares, oficinas y locales comerciales.</p>
+                <p>Nuestra misión es garantizar un ambiente perfecto en cualquier estación del año, a través de servicios de instalación, reparación y mantenimiento de equipos de aire acondicionado de última generación. Nos comprometemos con la calidad, la eficiencia y la satisfacción de nuestros clientes, utilizando solo materiales de primera y las técnicas más avanzadas. Confíe en nosotros para un servicio profesional, rápido y de confianza.</p>
             </section>
 
             <section id="contacto" class="section">
